@@ -1,0 +1,28 @@
+@model IEnumerable<ToDoModel>
+
+@{
+    ViewData["Title"] = "To Do List";
+}
+
+
+<div class="container">
+    <div class="my-todo-container">
+        <div class="title text-center col-lg-6 m-auto d-flex align-items-center justify-content-between p-3 my-border">
+            <h1 class="orange-text">To Do List</h1>
+            <a asp-action="AddToDo" class="my-btn blue-bg"><i class="bi bi-plus-square"></i> &nbsp; Add New Item</a>
+        </div>
+        @foreach(var item in Model)
+        {
+            <div class="todo-card col-lg-6 m-auto mt-3">
+                <div class="item-text">
+                    <h5>@item.ToDoItem</h5>
+                </div>
+                <div class="buttonss">
+                <a asp-action="Edit" class="my-btn btn-success" asp-route-id="@item.Id">Edit</a>
+                <a asp-action="Remove" class="my-btn btn-danger" asp-route-id="@item.Id">Remove</a>
+            </div>
+            </div>
+            
+        }
+    </div>
+</div>

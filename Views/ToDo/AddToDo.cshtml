@@ -1,0 +1,25 @@
+@model ToDoModel
+<div class="container">
+    <form method="post">
+        <h2>Add Item</h2>
+        <div class="row">
+            <div class="col-lg-6 m-auto">
+                <label asp-for="ToDoItem"></label>
+                <input type="text" asp-for="ToDoItem" class="form-control">
+                <span class="text-danger sm-fnt" asp-validation-for="ToDoItem"></span>
+                <div class="col-lg-6 mt-2 ">
+                    <button class="my-btn orange-bg" type="submit">Add Item</button>
+                    <a asp-action="Index" class="my-btn grey-bg ms-2 ">Back To List</a>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
